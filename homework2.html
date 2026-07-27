@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LOGIN</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    background:#667eea;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+.bubble{
+    position:absolute;
+    border-radius:45% 55% 52% 48% / 40% 55% 45% 60%;
+    filter:blur(1px);
+}
+
+.b1{
+    width:380px;
+    height:380px;
+    background:#8b5cf6;
+    top:-120px;
+    left:-100px;
+    opacity:.45;
+}
+
+.b2{
+    width:330px;
+    height:330px;
+    background:#38bdf8;
+    bottom:-120px;
+    right:-80px;
+    opacity:.45;
+}
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:75px;
+    backdrop-filter:blur(18px);
+    background:rgba(255,255,255,.12);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 60px;
+    z-index:100;
+}
+
+.logo{
+    color:white;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.nav-links{
+    display:flex;
+    gap:45px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:white;
+    font-size:18px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#ffe082;
+}
+
+.notification{
+    position:relative;
+    color:white;
+    font-size:24px;
+    cursor:pointer;
+}
+
+.notification span{
+    position:absolute;
+    top:-8px;
+    right:-10px;
+    background:red;
+    color:white;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    font-size:11px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.login-box{
+    width:390px;
+    padding:40px;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.25);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border-radius:22px;
+    box-shadow: 0 8px 35px rgba(0,0,0,.18);
+    color:white;
+}
+
+.login-box h2{
+    text-align:center;
+    margin-bottom:28px;
+}
+
+.cross{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.input-box{
+    margin-bottom:20px;
+}
+
+.input-box label{
+    display:block;
+    margin-bottom:8px;
+}
+
+.input-box input{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    outline:none;
+    background:rgba(255,255,255,.25);
+    color:white;
+    font-size:15px;
+}
+
+.input-box input::placeholder{
+    color:#eee;
+}
+
+.password-label{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.info{
+    position:relative;
+    cursor:pointer;
+    color:white;
+}
+
+.tooltip{
+    position:absolute;
+    top:-8px;
+    left:25px;
+    width:220px;
+    background:white;
+    color:#333;
+    padding:10px;
+    border-radius:8px;
+    font-size:13px;
+    display:none;
+    box-shadow:0 5px 12px rgba(0,0,0,.2);
+}
+
+.info:hover .tooltip{
+    display:block;
+}
+
+button{
+    width:100%;
+    padding:13px;
+    border:none;
+    border-radius:10px;
+    background:#ffffff;
+    color:#5b67d9;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#ececec;
+}
+
+.options{
+    margin-top:18px;
+    display:flex;
+    justify-content:space-between;
+}
+
+a{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.chat{
+    position:fixed;
+    bottom:28px;
+    right:28px;
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    background:#25D366;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-size:30px;
+    box-shadow:0 8px 20px rgba(0,0,0,.3);
+    cursor:pointer;
+    transition:.3s;
+}
+</style>
+</head>
+
+<body>
+
+<div class="bubble b1"></div>
+<div class="bubble b2"></div>
+
+<nav>
+<div class="logo"> EduPortal </div>
+
+<div class="nav-links">
+<a href="#">Home</a>
+<a href="#">Courses</a>
+<a href="#">Contact</a>
+</div>
+
+<div class="notification">
+<i class="fa-solid fa-bell"></i>
+<span>5</span>
+</div>
+</nav>
+
+<div class="login-box">
+<h2>Login</h2>
+
+<div class="cross"><a href = "#">x</a></div>
+
+<div class="input-box">
+<label>ID</label>
+<input type="text" placeholder="Enter your ID">
+</div>
+
+<div class="input-box">
+<div class="password-label">
+<label>Password</label>
+
+<div class="info">
+<i class="fa-solid fa-circle-info"></i>
+<div class="tooltip">
+Password should be at least 8 characters long.
+</div>
+</div>
+</div>
+
+<input type="password" placeholder="Enter Password">
+</div>
+
+<button> Login </button>
+
+<div class="options">
+<a href="#">Forgot Password?</a>
+<a href="#">Sign Up</a>
+</div>
+
+</div>
+
+<div class="chat"> <i class="fa-solid fa-comments"></i> </div>
+
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Free Attendance?</title>
+<style>
+  :root{
+    --bg1:#ffd76e;
+    --bg2:#ff9a56;
+    --ink:#2b1d0e;
+    --yes:#4caf7d;
+    --yes-dark:#357a56;
+    --no:#ff5c5c;
+    --no-dark:#c73f3f;
+    --card:#fffaf0;
+  }k
+
+  *{ box-sizing:border-box; }
+
+  html,body{
+    margin:0;
+    height:100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: radial-gradient(circle at top left, var(--bg1), var(--bg2));
+    overflow:hidden;
+  }
+
+  .hidden-check{
+    position:absolute;
+    opacity:0;
+    pointer-events:none;
+  }
+
+  .screen{
+    width:100%;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+  }
+
+  .card{
+    background:var(--card);
+    border:1px solid rgba(43,29,14,0.15);
+    border-radius:16px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    padding:40px 36px 56px;
+    max-width:520px;
+    width:100%;
+    text-align:center;
+    position:relative;
+  }
+
+  h1{
+    font-size:clamp(20px, 4vw, 28px);
+    font-weight:600;
+    color:var(--ink);
+    line-height:1.35;
+    margin:0 0 20px;
+  }
+
+  .meme{
+    width:260px;
+    max-width:80%;
+    border-radius:12px;
+    border:1px solid rgba(43,29,14,0.15);
+    margin-bottom:28px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  }
+
+  .buttons{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:28px;
+    min-height:120px;
+  }
+
+  .btn{
+    display:inline-block;
+    font-family:inherit;
+    font-weight:600;
+    font-size:16px;
+    padding:13px 26px;
+    border-radius:8px;
+    border:none;
+    cursor:pointer;
+    user-select:none;
+    transition: transform .15s ease, background .15s ease;
+  }
+
+  .yes-btn{
+    background:var(--yes);
+    color:#fff;
+    box-shadow: 0 6px 14px rgba(76,175,125,0.35);
+  }
+  .yes-btn:hover{ transform: scale(1.05); background:var(--yes-dark); }
+  .yes-btn:active{ transform: scale(0.96); }
+
+  .no-btn{
+    background:var(--no);
+    color:#fff;
+    box-shadow: 0 6px 14px rgba(255,92,92,0.35);
+    position:relative;
+    z-index:5;
+  }
+
+  /* --- state machine for the No button, built with checkbox hack --- */
+
+  /* default: show "No", hide the rest */
+  .state2, .state3{ display:none; }
+
+  #no1:checked ~ .quiz-screen .state1{ display:none; }
+  #no1:checked ~ .quiz-screen .state2{ display:inline-block; }
+
+  #no2:checked ~ .quiz-screen .state2{ display:none; }
+  #no2:checked ~ .quiz-screen .state3{ display:inline-block; }
+
+  /* the final "100%" button escapes the card entirely on hover.
+     it hops between corners of the viewport, and each time the
+     cursor catches up to it, it snaps back to its original spot
+     before the mouse can actually land on it again. */
+  .state3{
+    position:relative;
+    animation: blink-btn 1.3s steps(1, end) infinite;
+  }
+
+  @keyframes blink-btn{
+    0%, 45%   { opacity:1; pointer-events:auto; }
+    50%, 95%  { opacity:0; pointer-events:none; }
+    100%      { opacity:1; pointer-events:auto; }
+  }
+
+  .state3:hover{
+    position:fixed;
+    top:32px;
+    right:32px;
+  }
+
+  .thank-you-screen{
+    display:none;
+    text-align:center;
+    background: linear-gradient(135deg, var(--yes), var(--yes-dark));
+  }
+  .thank-you-screen h1{
+    color:#fff;
+    font-size:clamp(28px, 6vw, 48px);
+    padding:0 20px;
+  }
+
+  #yes:checked ~ .quiz-screen{ display:none; }
+  #yes:checked ~ .thank-you-screen{ display:flex; }
+
+</style>
+</head>
+<body>
+
+  <input type="checkbox" id="yes" class="hidden-check">
+  <input type="checkbox" id="no1" class="hidden-check">
+  <input type="checkbox" id="no2" class="hidden-check">
+
+  <div class="screen quiz-screen">
+    <div class="card">
+      <h1>Can we all have one free attendance? 🥹 </h1>
+      <h6>(or maybe just me 😅)</h6>
+
+      <img class="meme" src="pleases_cat.jpeg">
+
+      <div class="buttons">
+        <label for="yes" class="btn yes-btn">Yes</label>
+
+        <label for="no1" class="btn no-btn state1">No</label>
+        <label for="no2" class="btn no-btn state2">Are you sure?</label>
+        <label class="btn no-btn state3">100%</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen thank-you-screen">
+    <h1>Thank you sir! You are officially the best 🎉</h1>
+    <img class="meme" src="thanks_cat.jpeg">
+  </div>
+
+</body>
+</html>

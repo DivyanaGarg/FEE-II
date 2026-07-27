@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revise CSS</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+       .external-css {
+           color: blue;
+           font-size: 28px;
+       }
+       #id-selector {
+           color: green;
+           font-size: 24px;
+       }
+    </style>
+</head>
+<body>
+    <p style="color: red; font-size: 32px;">This text is red. - Inline CSS</p>
+    <p class="external-css">This text is blue. - External CSS (class selector)</p>
+    <p class="external-css" style="color: purple;">Internal CSS has more specificity and importance.</p>
+    <p class="external-css" id="id-selector">This text is green. - ID Selector has more specificity than class selectors.</p>
+    <p> Internal > Internal (id selector > class selector > element selector > pseudo-element > universal selector) > External</p>
+    <p> Specificity hierarchy: Inline > Internal > External</p>
+    <p> Vertical margins collapse whereas horizontal margins do not.</p>
+
+    <div>
+        <p>This text is pink. - Parent div, child p element</p>
+    </div>
+
+    <p> 
+        Sizes: vh - viewport height, vw - viewport width, vmin - viewport minimum (either height or width), vmax - viewport maximum (either height or width)
+        <br>
+        px - pixels - absolute units
+        <br>
+        em - relative to the font-size of the element (2em means 2 times the size of the current font)
+        <br>
+        rem - relative to font-size of the root element
+        <br>
+        % - relative to the parent element
+    </p>
+</body>
+</html>
