@@ -1,0 +1,135 @@
+/* General Page Styling */
+body {
+    margin: 0;
+    padding: 0;
+    background: #f4f6f9;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+/* Main Todo Container */
+#todo {
+    width: 500px;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Input Fields */
+#todo input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+#todo input[type="text"]:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.4);
+}
+
+/* Buttons */
+#todo button {
+    padding: 10px 16px;
+    margin: 6px 5px 10px 0;
+    border: none;
+    border-radius: 6px;
+    background: #4a90e2;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#todo button:hover {
+    background: #357abd;
+    transform: translateY(-2px);
+}
+
+/* Todo List Container */
+#todo > div:last-child {
+    margin-top: 20px;
+    border: none !important;
+}
+
+/* Individual Todo Items */
+#todo > div:last-child > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd !important;
+    border-radius: 8px;
+    background: #fafafa;
+    transition: 0.3s;
+}
+
+#todo > div:last-child > div:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+
+/* Task Text */
+#todo p {
+    flex: 1;
+    margin: 0;
+    font-size: 16px;
+    word-break: break-word;
+}
+
+/* Completed Tasks (JS already sets green background) */
+#todo > div:last-child > div[style*="green"] p {
+    color: white;
+    font-weight: bold;
+}
+
+/* Delete Button */
+#todo button:nth-of-type(2) {
+    background: #e74c3c;
+}
+
+#todo button:nth-of-type(2):hover {
+    background: #c0392b;
+}
+
+/* Edit Button */
+#todo button:nth-of-type(3) {
+    background: #f39c12;
+}
+
+#todo button:nth-of-type(3):hover {
+    background: #d68910;
+}
+
+/* Complete Button */
+#todo button:nth-of-type(4) {
+    background: #27ae60;
+}
+
+#todo button:nth-of-type(4):hover {
+    background: #1e8449;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    #todo {
+        width: 90%;
+        padding: 20px;
+    }
+
+    #todo > div:last-child > div {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #todo button {
+        width: 100%;
+    }
+}
