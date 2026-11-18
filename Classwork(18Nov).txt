@@ -1,0 +1,41 @@
+QUESTION ->
+
+Arrange in order of importance:
+JS, props, UI, web application, forms, router, component, onSubmit, mutipages, react, Zustand, UX, map, filter, onClick, state, buttons, link, validation, CSS, function, global state, nested routes
+
+
+ANSWER ->
+
+JS
+Function
+React
+Component
+UI
+State
+Props
+Web application 
+CSS
+Buttons
+OnClick
+onSubmit
+Forms
+Validation
+Router
+UX
+Map
+Filter
+Link
+Multipages
+Global state
+Nested routes
+Zustand
+
+JS - It is the backbone as it helps in making websites interactive and dynamic. Every action performed by the user or there to be performed is handled by javascript itself. It is must to build a functional website
+
+Function - It is a reusable block of code written to perform a particular task. It executes when called and can accept inputs and return an output. Functions help make code organised, reusable and easier to maintain. It handles all the operations in a website.
+
+React - React is the most used JavaScript library used to build interactive websites. It helps developers build fast, interactive user interfaces using reusable components, making it easier to manage complex applications.
+
+UI - UI is the visual part of a website users interact with. A good UI is what makes an application easy to navigate and is that is focused on while developing anything in general. It is why a user would use your application.
+
+Component - Components are the building blocks of React applications. They divide a website into smaller, reusable sections such as headers, buttons, forms and navigation bars, making the code more organised and easier to update. Instead of updating the whole application, it is much better and faster to update a part of it.

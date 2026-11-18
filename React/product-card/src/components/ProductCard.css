@@ -1,0 +1,42 @@
+.product-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+    margin: 20px auto;
+    flex-wrap: wrap;
+}
+
+
+.card {
+    width: 250px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    background: rgb(66, 92, 130);
+    margin: 10px;
+}
+
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+
+button {
+    background: rgb(15, 78, 214);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+
+button:hover {
+    background: blue;
+}
